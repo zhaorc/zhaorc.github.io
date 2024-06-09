@@ -84,6 +84,7 @@ td {
 	font-style: italic;
 }
 .parts_col_td {
+	background: #fadc9b;
 	width: 63px;
 	height: 20px;
 	border-top: 1px solid #000000;
