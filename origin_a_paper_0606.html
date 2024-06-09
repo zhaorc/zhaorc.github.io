@@ -1,0 +1,534 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>啊哈哈</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="jquery-3.7.1.min.js"></script>
+<script src="pixel-app.js"></script>
+<style>
+body {
+	margin: 0;
+	padding: 5px;
+	cell-spacing: 0;
+	border-spacing: 0;
+}
+table,tr,td {
+	margin: 0;
+	padding: 0;
+	cell-spacing: 0;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	font-size: 24px;
+}
+td {
+	width: 18px;
+	height: 18px;
+	border-collapse: collapse;
+}
+.index_body {
+	margin-left: 30px;
+}
+.index_td {
+	font-size: 24px;
+	width: 200px;
+	padding: 10px 10px 10px 0px;
+}
+.paper_td {
+	width: 40px;
+	height: 35px;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	text-align: center;
+}
+.row_td {
+	width: 40px;
+	height: 35px;
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 0;
+	border-collapse: collapse;
+	text-align: center;
+}
+.col_td {
+	width: 40px;
+	height: 40px;
+	border-top: 0;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-collapse: collapse;
+	text-align: center;
+}
+.corner_td {
+	width: 40px;
+	height: 40px;
+	border-top: 0;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 0;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.parts_table {
+	margin: 0 0 0 0;
+	padding: 0;
+	cell-spacing: 0;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.parts_row_td {
+	width: 63px;
+	height: 50px;
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-collapse: collapse;
+	text-align: center;
+	font-style: italic;
+}
+.parts_col_td {
+	width: 63px;
+	height: 20px;
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-collapse: collapse;
+	text-align: center;
+}
+.title {
+	margin: 5px 0 5px 0;
+	font-size: 24px;
+}
+.paper_table {
+	margin: 0 0 50px 0px;
+	padding: 0;
+	cell-spacing: 0;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.td_done {
+	border: 1px solid #ff0000;
+}
+.td_light {
+	border: 1px solid #ffffff;
+}
+.ui-tooltip .ui-tooltip-inner1 {
+	width: 80px;
+	font-size: 18px;
+	display: block;
+	position: absolute;
+	padding: 3px 8px;
+	margin-top: -45px;
+	margin-left: 20px;
+	color: #fff;
+	text-align: left;
+	background-color: #000;
+	border-radius: 4px;
+	z-index: 1
+}
+.ui-tooltip-inner2 {
+	width: 80px;
+	font-size: 18px;
+	display: block;
+	position: absolute;
+	padding: 3px 8px;
+	margin-top: -70px;
+	margin-left: 20px;
+	color: #fff;
+	text-align: left;
+	background-color: #000;
+	border-radius: 4px;
+	z-index: 1
+}
+.action_table {
+	margin: 5px 0 5px 0px;
+}
+.action_td_blank {
+	width: 0;
+}
+.action_td {
+	padding:0 5px 0 5px;
+}
+.ui-button {
+	display: inline-block;
+	margin-bottom: 1px;
+	padding: 0 10px;
+	font-size: 20px;
+	height: 42px;
+	line-height: 36px;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	background-image: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	outline: 0;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: background-color .3s ease-out,border-color .3s ease-out;
+	border-radius: 3px;box-shadow:0 2px 4px rgba(0,0,0,0.1);
+	background-color: #2db7f5;
+	border-color: #2db7f5;
+	color: #fff
+}
+.index_button {
+	margin: 0;
+}
+.color_001 {background:#eacdae}
+.color_002 {background:#e4cc9e}
+.color_003 {background:#fadc9b}
+.color_004 {background:#c79f66}
+.color_005 {background:#e1b9a6}
+.color_006 {background:#edb39e}
+.color_007 {background:#f4cfbc}
+.color_008 {background:#e9c5b7}
+.color_009 {background:#edac82}
+.color_010 {background:#fdc596}
+.color_011 {background:#f5a992}
+.color_012 {background:#e5bcb0}
+.color_013 {background:#ba5343}
+.color_014 {background:#a8374c}
+.color_015 {background:#e52842}
+.color_017 {background:#f8af33}
+.color_018 {background:#f27d58}
+.color_019 {background:#fd7b39}
+.color_020 {background:#feb736}
+.color_021 {background:#ffa325}
+.color_022 {background:#fb723a}
+.color_023 {background:#fc5a28}
+.color_024 {background:#e41c1e}
+.color_025 {background:#f96154}
+.color_026 {background:#fea15f}
+.color_027 {background:#fe781f}
+.color_028 {background:#fdd68b}
+.color_029 {background:#fce86c}
+.color_030 {background:#fee35e}
+.color_031 {background:#cb1626}
+.color_032 {background:#f63948}
+.color_033 {background:#e1222a}
+.color_034 {background:#f5bfd7}
+.color_035 {background:#e397d9}
+.color_036 {background:#e5d2f0}
+.color_037 {background:#ad7fc8}
+.color_038 {background:#bc86ca}
+.color_039 {background:#bb8cc8}
+.color_040 {background:#7439ae}
+.color_041 {background:#572481}
+.color_042 {background:#e05ba2}
+.color_043 {background:#e956ab}
+.color_044 {background:#ff86c6}
+.color_045 {background:#f7aeb5}
+.color_046 {background:#f7bed1}
+.color_047 {background:#f9b8d4}
+.color_048 {background:#c8fbf6}
+.color_049 {background:#7fd1d6}
+.color_050 {background:#81d0db}
+.color_051 {background:#83c8de}
+.color_052 {background:#70b1e1}
+.color_053 {background:#5cbfe8}
+.color_054 {background:#33aae1}
+.color_055 {background:#1481dc}
+.color_056 {background:#2e53bd}
+.color_057 {background:#4b6ab4}
+.color_058 {background:#1f258e}
+.color_059 {background:#2b275d}
+.color_060 {background:#2272a7}
+.color_061 {background:#8ed3bb}
+.color_062 {background:#bfdc80}
+.color_063 {background:#48ee80}
+.color_064 {background:#a1d054}
+.color_065 {background:#d5e063}
+.color_066 {background:#58b074}
+.color_067 {background:#818378}
+.color_068 {background:#8a7768}
+.color_069 {background:#555b2e}
+.color_070 {background:#3ca776}
+.color_071 {background:#458063}
+.color_072 {background:#26647b}
+.color_073 {background:#b1a8a9}
+.color_074 {background:#afa6af}
+.color_075 {background:#7c6d77}
+.color_076 {background:#52404c}
+.color_077 {background:#9b5c54}
+.color_078 {background:#5d2127}
+.color_079 {background:#7c2d22}
+.color_080 {background:#852d29}
+.color_081 {background:#7b2b2b}
+.color_082 {background:#fdfff1}
+.color_083 {background:#f3ecf8}
+.color_084 {background:#fdf9fd}
+.color_085 {background:#23091b}
+.color_086 {background:#c75e17}
+.color_088 {background:#1b0415}
+.color_089 {background:#141641}
+.color_090 {background:#220764}
+.color_091 {background:#ce0714}
+.color_092 {background:#fd6102}
+.color_093 {background:#e4e875}
+.color_094 {background:#e93f8e}
+.color_095 {background:#ef2d19}
+.color_096 {background:#fc6d90}
+.color_097 {background:#bc2996}
+.color_098 {background:#bc2996}
+.color_099 {background:#08437e}
+.color_100 {background:#205fab}
+.color_101 {background:#0297d2}
+.color_102 {background:#5b3737}
+.color_103 {background:#236560}
+.color_104 {background:#1ce784}
+.color_106 {background:#63da90}
+.color_107 {background:#773116}
+.color_121 {background:#cec3c0}
+.color_122 {background:#b3a8a7}
+.color_123 {background:#3c2536}
+.color_124 {background:#d57952}
+.color_125 {background:#df5121}
+.color_126 {background:#cc4d36}
+.color_127 {background:#f77376}
+.color_128 {background:#f85646}
+.color_129 {background:#85131a}
+.color_130 {background:#a91632}
+.color_131 {background:#6e4122}
+.color_132 {background:#413c37}
+.color_133 {background:#323084}
+.color_134 {background:#3f2b3b}
+.color_135 {background:#936e61}
+.color_136 {background:#864236}
+.color_137 {background:#e59676}
+.color_138 {background:#db8f3e}
+.color_139 {background:#d31a65}
+.color_140 {background:#e3838f}
+.color_141 {background:#aeaa8d}
+.color_142 {background:#c7bba2}
+.color_143 {background:#958a5a}
+.color_144 {background:#b96644}
+
+</style>
+<script>var partsBoxMap = {"008":"0-0","012":"0-1","013":"0-2","014":"0-3","036":"0-4","046":"1-0","067":"1-1","074":"1-2","075":"1-3","076":"1-4","077":"2-0","078":"2-1","083":"2-2","084":"2-3","085":"2-4","102":"3-0","121":"3-1","122":"3-2","123":"3-3","124":"3-4","131":"4-0","134":"4-1","135":"4-2","136":"4-3","138":"4-4","141":"5-0","144":"5-1"};</script>
+</head>
+<body>
+<h3 class="title">0606</h3>
+<table class="parts_table">
+<tr>
+<td class="parts_col_td">008</td>
+<td class="parts_col_td">012</td>
+<td class="parts_col_td">013</td>
+<td class="parts_col_td">014</td>
+<td class="parts_col_td">036</td>
+<td class="parts_col_td">046</td>
+<td class="parts_col_td">067</td>
+</tr>
+<tr>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">2</td>
+<td class="parts_row_td">3</td>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">1</td>
+</tr>
+<tr>
+<td class="parts_col_td">074</td>
+<td class="parts_col_td">075</td>
+<td class="parts_col_td">076</td>
+<td class="parts_col_td">077</td>
+<td class="parts_col_td">078</td>
+<td class="parts_col_td">083</td>
+<td class="parts_col_td">084</td>
+</tr>
+<tr>
+<td class="parts_row_td">2</td>
+<td class="parts_row_td">4</td>
+<td class="parts_row_td">5</td>
+<td class="parts_row_td">2</td>
+<td class="parts_row_td">9</td>
+<td class="parts_row_td">7</td>
+<td class="parts_row_td">12</td>
+</tr>
+<tr>
+<td class="parts_col_td">085</td>
+<td class="parts_col_td">102</td>
+<td class="parts_col_td">121</td>
+<td class="parts_col_td">122</td>
+<td class="parts_col_td">123</td>
+<td class="parts_col_td">124</td>
+<td class="parts_col_td">131</td>
+</tr>
+<tr>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">10</td>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">12</td>
+<td class="parts_row_td">1</td>
+<td class="parts_row_td">1</td>
+</tr>
+</table>
+<table class="action_table">
+<tr>
+<td class="action_td_blank"></td>
+<td class="action_td"><button name="page" type="button" class="ui-button" _page="../index.html">目录</button></td>
+<td class="action_td"><button name="page" type="button" class="ui-button" _page="origin_a_paper_0605.html">上一页</button></td>
+<td class="action_td"><button name="page" type="button" class="ui-button" _page="origin_a_paper_0607.html">下一页</button></td>
+<td class="action_td"><button name="step" type="button" class="ui-button">NEXT</button></td>
+</tr>
+</tr>
+</table>
+<table class="paper_table">
+<tr>
+<td class="corner_td"></td>
+<td class="col_td">60</td>
+<td class="col_td">61</td>
+<td class="col_td">62</td>
+<td class="col_td">63</td>
+<td class="col_td">64</td>
+<td class="col_td">65</td>
+<td class="col_td">66</td>
+<td class="col_td">67</td>
+<td class="col_td">68</td>
+<td class="col_td">69</td>
+</tr>
+<tr>
+<td class="row_td">60</td>
+<td class="block color_138"></td>
+<td class="block color_012"></td>
+<td class="block color_046"></td>
+<td class="block color_036"></td>
+<td class="block color_083"></td>
+<td class="block color_083"></td>
+<td class="block color_083"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+</tr>
+<tr>
+<td class="row_td">61</td>
+<td class="block color_013"></td>
+<td class="block color_124"></td>
+<td class="block color_008"></td>
+<td class="block color_036"></td>
+<td class="block color_083"></td>
+<td class="block color_083"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+</tr>
+<tr>
+<td class="row_td">62</td>
+<td class="block color_134"></td>
+<td class="block color_134"></td>
+<td class="block color_102"></td>
+<td class="block color_122"></td>
+<td class="block color_036"></td>
+<td class="block color_083"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+<td class="block color_084"></td>
+</tr>
+<tr>
+<td class="row_td">63</td>
+<td class="block color_134"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_134"></td>
+<td class="block color_075"></td>
+<td class="block color_141"></td>
+<td class="block color_121"></td>
+<td class="block color_083"></td>
+<td class="block color_084"></td>
+</tr>
+<tr>
+<td class="row_td">64</td>
+<td class="block color_102"></td>
+<td class="block color_123"></td>
+<td class="block color_134"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_134"></td>
+<td class="block color_075"></td>
+</tr>
+<tr>
+<td class="row_td">65</td>
+<td class="block color_014"></td>
+<td class="block color_134"></td>
+<td class="block color_076"></td>
+<td class="block color_123"></td>
+<td class="block color_123"></td>
+<td class="block color_078"></td>
+<td class="block color_078"></td>
+<td class="block color_078"></td>
+<td class="block color_102"></td>
+<td class="block color_102"></td>
+</tr>
+<tr>
+<td class="row_td">66</td>
+<td class="block color_014"></td>
+<td class="block color_102"></td>
+<td class="block color_076"></td>
+<td class="block color_076"></td>
+<td class="block color_131"></td>
+<td class="block color_078"></td>
+<td class="block color_078"></td>
+<td class="block color_136"></td>
+<td class="block color_102"></td>
+<td class="block color_102"></td>
+</tr>
+<tr>
+<td class="row_td">67</td>
+<td class="block color_067"></td>
+<td class="block color_102"></td>
+<td class="block color_078"></td>
+<td class="block color_102"></td>
+<td class="block color_136"></td>
+<td class="block color_136"></td>
+<td class="block color_136"></td>
+<td class="block color_136"></td>
+<td class="block color_136"></td>
+<td class="block color_102"></td>
+</tr>
+<tr>
+<td class="row_td">68</td>
+<td class="block color_075"></td>
+<td class="block color_074"></td>
+<td class="block color_136"></td>
+<td class="block color_078"></td>
+<td class="block color_078"></td>
+<td class="block color_136"></td>
+<td class="block color_136"></td>
+<td class="block color_144"></td>
+<td class="block color_077"></td>
+<td class="block color_076"></td>
+</tr>
+<tr>
+<td class="row_td">69</td>
+<td class="block color_123"></td>
+<td class="block color_141"></td>
+<td class="block color_074"></td>
+<td class="block color_076"></td>
+<td class="block color_078"></td>
+<td class="block color_085"></td>
+<td class="block color_134"></td>
+<td class="block color_077"></td>
+<td class="block color_135"></td>
+<td class="block color_075"></td>
+</tr>
+</table>
+</body>
