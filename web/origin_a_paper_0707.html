@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="jquery-3.7.1.min.js"></script>
-<script src="pixel-app.js"></script>
+<script src="pixel-app.js?v=0001"></script>
 <style>
 body {
 	margin: 0;
@@ -26,6 +26,9 @@ td {
 	width: 18px;
 	height: 18px;
 	border-collapse: collapse;
+}
+.index_body {
+	margin-left: 30px;
 }
 .index_td {
 	font-size: 24px;
@@ -87,6 +90,7 @@ td {
 	border-left: 1px solid #000000;
 	border-collapse: collapse;
 	text-align: center;
+	font-style: italic;
 }
 .parts_col_td {
 	width: 63px;
@@ -123,7 +127,7 @@ td {
 	position: absolute;
 	padding: 3px 8px;
 	margin-top: -45px;
-	margin-left: 20px;
+	margin-left: 0px;
 	color: #fff;
 	text-align: left;
 	background-color: #000;
@@ -137,7 +141,7 @@ td {
 	position: absolute;
 	padding: 3px 8px;
 	margin-top: -70px;
-	margin-left: 20px;
+	margin-left: 0px;
 	color: #fff;
 	text-align: left;
 	background-color: #000;
@@ -151,7 +155,7 @@ td {
 	width: 0;
 }
 .action_td {
-	padding:0 20px 0 10px;
+	padding:0 5px 0 5px;
 }
 .ui-button {
 	display: inline-block;
@@ -180,7 +184,7 @@ td {
 	color: #fff
 }
 .index_button {
-	margin: 0px 0 -10px 0px;
+	margin: 0;
 }
 .color_001 {background:#eacdae}
 .color_002 {background:#e4cc9e}
@@ -359,8 +363,8 @@ td {
 <td class="action_td_blank"></td>
 <td class="action_td"><button name="page" type="button" class="ui-button" _page="../index.html">目录</button></td>
 <td class="action_td"><button name="page" type="button" class="ui-button" _page="origin_a_paper_0706.html">上一页</button></td>
-<td class="action_td"><button name="step" type="button" class="ui-button">NEXT</button></td>
 <td class="action_td"><button name="page" type="button" class="ui-button" _page="origin_a_paper_0708.html">下一页</button></td>
+<td class="action_td"><button name="step" type="button" class="ui-button">NEXT</button></td>
 </tr>
 </tr>
 </table>

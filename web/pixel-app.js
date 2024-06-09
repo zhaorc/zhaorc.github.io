@@ -57,13 +57,13 @@ $(document).ready(function() {
 					if(x == $tdList.length-1) {
 						var colorCode = colorName.replace("color_","");
 						var partsBox = partsBoxMap[colorCode];
-						$firstTd.html(self.tooltip.replace("$1", colorCode + " x " + num).replace("$2", partsBox));
+						$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
 					}
 				}
 				else {
 					var colorCode = colorName.replace("color_","");
 					var partsBox = partsBoxMap[colorCode];
-					$firstTd.html(self.tooltip.replace("$1", colorCode + " x " + num).replace("$2", partsBox));
+					$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
 					break;
 				}
 			}
