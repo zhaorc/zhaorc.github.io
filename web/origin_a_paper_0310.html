@@ -162,7 +162,6 @@ td {
 	display: inline-block;
 	margin-bottom: 1px;
 	padding: 0 10px;
-	font-size: 20px;
 	height: 42px;
 	line-height: 36px;
 	font-weight: 400;
@@ -186,6 +185,13 @@ td {
 }
 .index_button {
 	margin: 0;
+}
+.ui-button-bg {
+	font-size: 20px;
+}
+.ui-button-lg {
+	font-size: 50px;
+	width: 70px;
 }
 .color_001 {background:#eacdae}
 .color_002 {background:#e4cc9e}
@@ -344,10 +350,11 @@ td {
 <table class="action_table">
 <tr>
 <td class="action_td_blank"></td>
-<td class="action_td"><button name="page" type="button" class="ui-button" _page="../index.html">目录</button></td>
-<td class="action_td"><button name="page" type="button" class="ui-button" _page="origin_a_paper_0309.html">上一页</button></td>
-<td class="action_td"><button name="page" type="button" class="ui-button" _page="origin_a_paper_0311.html">下一页</button></td>
-<td class="action_td"><button name="step" type="button" class="ui-button">NEXT</button></td>
+<td class="action_td"><button name="page" type="button" class="ui-button ui-button-bg" _page="../index.html">目录</button></td>
+<td class="action_td"><button name="page" type="button" class="ui-button ui-button-bg" _page="origin_a_paper_0309.html">上一页</button></td>
+<td class="action_td"><button name="page" type="button" class="ui-button ui-button-bg" _page="origin_a_paper_0311.html">下一页</button></td>
+<td class="action_td"><button name="_step" type="button" class="ui-button ui-button-lg">-</button></td>
+<td class="action_td"><button name="step_" type="button" class="ui-button ui-button-lg">+</button></td>
 </tr>
 </tr>
 </table>

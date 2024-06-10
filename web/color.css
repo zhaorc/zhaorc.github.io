@@ -153,7 +153,6 @@ td {
 	display: inline-block;
 	margin-bottom: 1px;
 	padding: 0 10px;
-	font-size: 20px;
 	height: 42px;
 	line-height: 36px;
 	font-weight: 400;
@@ -177,4 +176,11 @@ td {
 }
 .index_button {
 	margin: 0;
+}
+.ui-button-bg {
+	font-size: 20px;
+}
+.ui-button-lg {
+	font-size: 50px;
+	width: 70px;
 }
