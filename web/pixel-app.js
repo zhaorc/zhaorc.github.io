@@ -6,6 +6,7 @@ $(document).ready(function() {
 		bindEvents: function() {
 			var self = this;
 			self.readWork();
+			alert("111 row=" + self.row + ",col=" + self.col)
 			var $table = $("table.paper_table");
 		    var $trList = $table.find("tr");
 			for(var y=1; y<self.row; y++) {
