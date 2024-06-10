@@ -35,7 +35,7 @@ td {
 }
 .row_td {
 	width: 40px;
-	height: 33px;
+	height: 35px;
 	border-top: 1px solid #000000;
 	border-right: 1px solid #000000;
 	border-bottom: 1px solid #000000;
@@ -74,7 +74,7 @@ td {
 }
 .parts_row_td {
 	width: 63px;
-	height: 35px;
+	height: 36px;
 	border-top: 1px solid #000000;
 	border-right: 1px solid #000000;
 	border-bottom: 1px solid #000000;
@@ -95,7 +95,7 @@ td {
 	text-align: center;
 }
 .title {
-	margin: 2px 0 1px 0;
+	margin: 2px 0 3px 0;
 	font-size: 24px;
 }
 .paper_table {
@@ -111,6 +111,9 @@ td {
 }
 .td_light {
 	border: 1px solid #ffffff;
+}
+.parts_done {
+	border: 2px solid #0000ff;
 }
 .ui-tooltip .ui-tooltip-inner1 {
 	width: 80px;
@@ -133,6 +136,20 @@ td {
 	position: absolute;
 	padding: 3px 8px;
 	margin-top: -70px;
+	margin-left: 0px;
+	color: #fff;
+	text-align: left;
+	background-color: #000;
+	border-radius: 4px;
+	z-index: 1
+}
+.ui-tooltip-inner3 {
+	width: 40px;
+	font-size: 18px;
+	display: block;
+	position: absolute;
+	padding: 3px 8px;
+	margin-top: -61px;
 	margin-left: 0px;
 	color: #fff;
 	text-align: left;
@@ -184,7 +201,16 @@ td {
 	font-size: 50px;
 	width: 70px;
 }
-
+.ui-button-sm {
+	font-size: 40px;
+	width: 45px;
+	height: 32px;
+	line-height: 32px;
+}
+.parts-action {
+	margin-top: -37px;
+	float: right;
+}
 .color_001 {background:#eacdae}
 .color_002 {background:#e4cc9e}
 .color_003 {background:#fadc9b}
