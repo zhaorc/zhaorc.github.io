@@ -45,7 +45,7 @@ $(document).ready(function() {
 			}
 			self.col = $tdList.length > 0 ? $tdList.length - 1 : 0;
 			var $firstTd = $tdList.last();
-			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replaceAll(" ","");
+			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","");
 			var num = 0;
 			for(var x=self.col; x>=0; x--) {
 				var $td = $tdList.eq(x);
@@ -139,6 +139,6 @@ $(document).ready(function() {
 		}
 
 	}
-	alert("333333");
+	alert("44444");
 	App.bindEvents();
 });
