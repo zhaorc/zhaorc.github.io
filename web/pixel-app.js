@@ -1,6 +1,4 @@
 $(document).ready(function() {
-	//$table = $("table.papaer_table");
-	//$trList = $table.find("tr");
 	var App = {
 		row: 1,
 		col: -1,
@@ -73,6 +71,7 @@ $(document).ready(function() {
 		},
 		selectNextBlock: function($trList) {
 			var self = this;
+			alert("row=" + self.row + ",col=" + self.col);
 			self.saveWork();
 			$trList.find("td.td_light").addClass("td_done").removeClass("td_light");
 			$trList.find("span[name=tooltip]").remove();
