@@ -132,5 +132,6 @@ $(document).ready(function() {
 		}
 
 	}
+	alert("DDDDDDDDDDD");
 	App.bindEvents();
 });
