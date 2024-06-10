@@ -22,7 +22,10 @@ $(document).ready(function() {
 				var page = $(this).attr("_page");
 				window.location.href = page;
 			});
-			$("button[name=step]").on("click", function() {
+			$("button[name=_step]").on("click", function() {
+				self.selectPreBlock($trList);
+			})
+			$("button[name=step_]").on("click", function() {
 				self.selectNextBlock($trList);
 			})
 			$(document).keydown(function(e) {
@@ -31,9 +34,46 @@ $(document).ready(function() {
 				}
 			})
 		},
+		selectPreBlock: function($trList) {
+			var self = this;
+			$trList.find("td.td_light").removeClass("td_light");
+			$trList.find("span[name=tooltip]").remove();
+			var $tr = $trList.eq(self.row);
+			var $tdList = $tr.find("td.td_done");
+			if($tdList.length == 0  && self.row > 1) {
+				self.row--;
+				$tr = $trList.eq(self.row);
+				$tdList = $tr.find("td.td_done");
+			}
+			self.col = $tdList.length > 0 ? $tdList.length - 1 : 0;
+			var $firstTd = $tdList.last();
+			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replaceAll(" ","");
+			var num = 0;
+			for(var x=self.col; x>=0; x--) {
+				var $td = $tdList.eq(x);
+				if($td.hasClass(colorName)) {
+					$td.removeClass("td_done").addClass("td_light");
+					self.col--;
+					num++;
+					if(x == $tdList.length-1) {
+						var colorCode = colorName.replace("color_","");
+						var partsBox = partsBoxMap[colorCode];
+						$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
+					}
+				}
+				else {
+					var colorCode = colorName.replace("color_","");
+					var partsBox = partsBoxMap[colorCode];
+					$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
+					break;
+				}
+			}
+			self.col = self.col < 0 ? 0 : self.col;
+			self.saveWork();
+		},
 		selectNextBlock: function($trList) {
 			var self = this;
-			self.saveWork();		
+			self.saveWork();
 			$trList.find("td.td_light").addClass("td_done").removeClass("td_light");
 			$trList.find("span[name=tooltip]").remove();
 			var $tr = $trList.eq(self.row);
@@ -45,8 +85,7 @@ $(document).ready(function() {
 			$tr = $trList.eq(self.row);
 			$tdList = $tr.find("td.block");
 			var $firstTd = $tdList.eq(self.col+1);
-			var colorName = $firstTd.attr("class");
-			colorName = colorName.replace("block","").replace("td_done","").replace("td_light","").replace(" ","");
+			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replaceAll(" ","");
 			var num = 0;
 			for(var x=self.col+1; x<$tdList.length; x++) {
 				var $td = $tdList.eq(x);
@@ -67,7 +106,6 @@ $(document).ready(function() {
 					break;
 				}
 			}
-			
 		},
 		readWork: function() {
 			var self = this;
