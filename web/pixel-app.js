@@ -6,7 +6,6 @@ $(document).ready(function() {
 		bindEvents: function() {
 			var self = this;
 			self.readWork();
-			alert("111 row=" + self.row + ",col=" + self.col)
 			var $table = $("table.paper_table");
 		    var $trList = $table.find("tr");
 			for(var y=1; y<self.row; y++) {
@@ -86,6 +85,8 @@ $(document).ready(function() {
 			$tdList = $tr.find("td.block");
 			var $firstTd = $tdList.eq(self.col+1);
 			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replaceAll(" ","");
+			//XXX
+			alert("colorName=" + colorName);
 			var num = 0;
 			for(var x=self.col+1; x<$tdList.length; x++) {
 				var $td = $tdList.eq(x);
@@ -132,6 +133,6 @@ $(document).ready(function() {
 		}
 
 	}
-	alert("DDDDDDDDDDD");
+	alert("111111");
 	App.bindEvents();
 });
