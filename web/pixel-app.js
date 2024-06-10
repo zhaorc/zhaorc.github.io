@@ -125,7 +125,10 @@ $(document).ready(function() {
 				col: self.col,
 				row: self.row
 			}
+			//XXX
+			alert("save1");
 			window.localStorage.setItem(key, JSON.stringify(work));
+			alert("save2");
 		},
 		checkMobie: function() {
 			var userAgent = window.navigator.userAgent;
@@ -133,6 +136,6 @@ $(document).ready(function() {
 		}
 
 	}
-	alert("111111");
+	alert("222222");
 	App.bindEvents();
 });
