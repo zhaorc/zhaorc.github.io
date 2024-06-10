@@ -113,7 +113,7 @@ td {
 	border: 1px solid #ffffff;
 }
 .parts_done {
-	border: 2px solid #0000ff;
+	border: 2px solid #ff0000;
 }
 .ui-tooltip .ui-tooltip-inner1 {
 	width: 80px;
