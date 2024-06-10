@@ -71,6 +71,7 @@ $(document).ready(function() {
 		},
 		selectNextBlock: function($trList) {
 			var self = this;
+			//XXX
 			alert("row=" + self.row + ",col=" + self.col);
 			self.saveWork();
 			$trList.find("td.td_light").addClass("td_done").removeClass("td_light");
@@ -83,6 +84,8 @@ $(document).ready(function() {
 			}
 			$tr = $trList.eq(self.row);
 			$tdList = $tr.find("td.block");
+			//XXX
+			alert("tds=" +$tdList.length);
 			var $firstTd = $tdList.eq(self.col+1);
 			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replaceAll(" ","");
 			//XXX
@@ -136,6 +139,6 @@ $(document).ready(function() {
 		}
 
 	}
-	alert("222222");
+	alert("333333");
 	App.bindEvents();
 });
