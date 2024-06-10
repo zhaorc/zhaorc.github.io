@@ -22,10 +22,10 @@ $(document).ready(function() {
 				var page = $(this).attr("_page");
 				window.location.href = page;
 			});
-			$("button[name=_step]").on("click", function() {
+			$("button[name=stepPre]").on("click", function() {
 				self.selectPreBlock($trList);
 			})
-			$("button[name=step_]").on("click", function() {
+			$("button[name=stepNext]").on("click", function() {
 				self.selectNextBlock($trList);
 			})
 			$(document).keydown(function(e) {
