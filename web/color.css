@@ -203,12 +203,12 @@ td {
 }
 .ui-button-sm {
 	font-size: 40px;
-	width: 45px;
-	height: 32px;
-	line-height: 32px;
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
 }
 .parts-action {
-	margin-top: -37px;
+	margin-top: -30px;
 	float: right;
 }
 .color_001 {background:#eacdae}
