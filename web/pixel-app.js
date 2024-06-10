@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var App = {
 		row: 1,
 		col: -1,
+		partsTooltip: "<span name=\"tooltip\" class=\"ui-tooltip\"><span class=\"ui-tooltip-inner3\">$1</span></span>",
 		tooltip: "<span name=\"tooltip\" class=\"ui-tooltip\"><span class=\"ui-tooltip-inner1\">$1</span><span class=\"ui-tooltip-inner2\">$2</span></span>",
 		bindEvents: function() {
 			var self = this;
@@ -32,6 +33,9 @@ $(document).ready(function() {
 				if(e.keyCode == 13) {
 					self.selectNextBlock($trList);
 				}
+			})
+			$("button[name=nextBox]").on("click", function() {
+				self.selectNextPartsBox();
 			})
 		},
 		selectPreBlock: function($trList) {
@@ -126,11 +130,23 @@ $(document).ready(function() {
 			}
 			window.localStorage.setItem(key, JSON.stringify(work));
 		},
-		checkMobie: function() {
-			var userAgent = window.navigator.userAgent;
-			return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+		selectNextPartsBox: function() {
+			var self = this;
+			var $table = $("table.parts_table");
+			$table.find("span[name=tooltip]").remove();
+			var colorCodeTdList = $table.find("td.parts_col_td");
+			var parsNumTdList = $table.find("td.parts_row_td");
+			var num = $table.find("td.parts_col_td.parts_done").length;
+			if(num == colorCodeTdList.length || !colorCodeTdList.eq(num).text()) {
+				$table.find("td.parts_done").removeClass("parts_done");
+				return;
+			}
+			var colorCode = colorCodeTdList.eq(num).text();
+			var partsBox = partsBoxMap[colorCode];
+			colorCodeTdList.eq(num).append(self.partsTooltip.replace("$1", partsBox));
+			colorCodeTdList.eq(num).addClass("parts_done");
+			parsNumTdList.eq(num).addClass("parts_done");
 		}
-
 	}
 	App.bindEvents();
 });
