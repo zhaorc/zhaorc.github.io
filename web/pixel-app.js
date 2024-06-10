@@ -45,7 +45,7 @@ $(document).ready(function() {
 			}
 			self.col = $tdList.length > 0 ? $tdList.length - 1 : 0;
 			var $firstTd = $tdList.last();
-			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","");
+			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","").replace(" ","");
 			var num = 0;
 			for(var x=self.col; x>=0; x--) {
 				var $td = $tdList.eq(x);
@@ -71,8 +71,6 @@ $(document).ready(function() {
 		},
 		selectNextBlock: function($trList) {
 			var self = this;
-			//XXX
-			alert("row=" + self.row + ",col=" + self.col);
 			self.saveWork();
 			$trList.find("td.td_light").addClass("td_done").removeClass("td_light");
 			$trList.find("span[name=tooltip]").remove();
@@ -84,10 +82,8 @@ $(document).ready(function() {
 			}
 			$tr = $trList.eq(self.row);
 			$tdList = $tr.find("td.block");
-			//XXX
-			alert("tds=" +$tdList.length);
 			var $firstTd = $tdList.eq(self.col+1);
-			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replaceAll(" ","");
+			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","").replace(" ","");
 			//XXX
 			alert("colorName=" + colorName);
 			var num = 0;
@@ -128,10 +124,7 @@ $(document).ready(function() {
 				col: self.col,
 				row: self.row
 			}
-			//XXX
-			alert("save1");
 			window.localStorage.setItem(key, JSON.stringify(work));
-			alert("save2");
 		},
 		checkMobie: function() {
 			var userAgent = window.navigator.userAgent;
@@ -139,6 +132,6 @@ $(document).ready(function() {
 		}
 
 	}
-	alert("44444");
+	alert("55555");
 	App.bindEvents();
 });
