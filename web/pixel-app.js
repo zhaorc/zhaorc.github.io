@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	//$table = $("table.papaer_table");
+	//$trList = $table.find("tr");
 	var App = {
 		row: 1,
 		col: -1,
@@ -84,8 +86,6 @@ $(document).ready(function() {
 			$tdList = $tr.find("td.block");
 			var $firstTd = $tdList.eq(self.col+1);
 			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","").replace(" ","");
-			//XXX
-			alert("colorName=" + colorName);
 			var num = 0;
 			for(var x=self.col+1; x<$tdList.length; x++) {
 				var $td = $tdList.eq(x);
@@ -132,6 +132,5 @@ $(document).ready(function() {
 		}
 
 	}
-	alert("55555");
 	App.bindEvents();
 });
