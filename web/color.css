@@ -18,6 +18,15 @@ td {
 	height: 18px;
 	border-collapse: collapse;
 }
+.pixel_table {
+	margin: 0 0 0 0;
+	padding: 0;
+	cell-spacing: 0;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	min-width: 1000px;
+}
 .index_body {
 	margin-left: 30px;
 }
