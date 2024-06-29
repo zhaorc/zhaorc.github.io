@@ -224,6 +224,9 @@ td {
 	margin-top: -30px;
 	float: right;
 }
+.img_td {
+	width: 300px;
+}
 .color_001 {background:#eacdae}
 .color_002 {background:#e4cc9e}
 .color_003 {background:#fadc9b}
