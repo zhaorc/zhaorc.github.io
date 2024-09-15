@@ -1,11 +1,10 @@
 $(document).ready(function() {
-	//$table = $("table.papaer_table");
-	//$trList = $table.find("tr");
 	var App = {
 		row: 1,
 		col: -1,
 		partsTooltip: "<span name=\"tooltip\" class=\"ui-tooltip\"><span class=\"ui-tooltip-inner3\">$1</span></span>",
-		tooltip: "<span name=\"tooltip\" class=\"ui-tooltip\"><span class=\"ui-tooltip-inner1\">$1</span><span class=\"ui-tooltip-inner2\">$2</span></span>",
+		tooltip1: "<span name=\"tooltip\" class=\"ui-tooltip\"><span class=\"ui-tooltip-inner1\">$1</span><span class=\"ui-tooltip-inner2\">$2</span></span>",
+		tooltip2: "<span name=\"tooltip\" class=\"ui-tooltip\"><span class=\"ui-tooltip-inner1\">$1</span>",
 		bindEvents: function() {
 			var self = this;
 			self.readWork();
@@ -51,7 +50,13 @@ $(document).ready(function() {
 			}
 			self.col = $tdList.length > 0 ? $tdList.length - 1 : 0;
 			var $firstTd = $tdList.last();
-			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","").replace(" ","");
+			var colorName = $firstTd.attr("class")
+				.replace("block ","")
+				.replace("td_done","")
+				.replace("td_light","")
+				.replace("block_td","")
+				.replace("mark_td","")
+				.replace(" ","").replace(" ","");
 			var num = 0;
 			for(var x=self.col; x>=0; x--) {
 				var $td = $tdList.eq(x);
@@ -60,15 +65,25 @@ $(document).ready(function() {
 					self.col--;
 					num++;
 					if(x == $tdList.length-1) {
-						var colorCode = colorName.replace("color_","");
+						var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 						var partsBox = partsBoxMap[colorCode];
-						$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
+						if(partsBox) {
+							$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+						}
+						else {
+							$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+						}
 					}
 				}
 				else {
-					var colorCode = colorName.replace("color_","");
+					var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 					var partsBox = partsBoxMap[colorCode];
-					$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
+					if(partsBox) {
+						$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+					}
+					else {
+						$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+					}
 					break;
 				}
 			}
@@ -89,7 +104,13 @@ $(document).ready(function() {
 			$tr = $trList.eq(self.row);
 			$tdList = $tr.find("td.block");
 			var $firstTd = $tdList.eq(self.col+1);
-			var colorName = $firstTd.attr("class").replace("block","").replace("td_done","").replace("td_light","").replace(" ","").replace(" ","");
+			var colorName = $firstTd.attr("class")
+				.replace("block ","")
+				.replace("td_done","")
+				.replace("td_light","")
+				.replace("block_td","")
+				.replace("mark_td","")
+				.replace(" ","").replace(" ","");
 			var num = 0;
 			for(var x=self.col+1; x<$tdList.length; x++) {
 				var $td = $tdList.eq(x);
@@ -98,15 +119,25 @@ $(document).ready(function() {
 					self.col++;
 					num++;
 					if(x == $tdList.length-1) {
-						var colorCode = colorName.replace("color_","");
+						var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 						var partsBox = partsBoxMap[colorCode];
-						$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
+						if(partsBox) {
+							$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+						}
+						else {
+							$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+						}
 					}
 				}
 				else {
-					var colorCode = colorName.replace("color_","");
+					var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 					var partsBox = partsBoxMap[colorCode];
-					$firstTd.html(self.tooltip.replace("$1", num + " x " + colorCode).replace("$2", partsBox));
+					if(partsBox) {
+						$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+					}
+					else {
+						$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+					}
 					break;
 				}
 			}
@@ -143,7 +174,7 @@ $(document).ready(function() {
 			}
 			var colorCode = colorCodeTdList.eq(num).text();
 			var partsBox = partsBoxMap[colorCode];
-			colorCodeTdList.eq(num).append(self.partsTooltip.replace("$1", partsBox));
+			colorCodeTdList.eq(num).append(self.partsTooltip.replace("$1", partsBox||""));
 			colorCodeTdList.eq(num).addClass("parts_done");
 			parsNumTdList.eq(num).addClass("parts_done");
 		}
