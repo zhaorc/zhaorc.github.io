@@ -71,7 +71,7 @@ $(document).ready(function() {
 							$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 						}
 						else {
-							$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
+							$firstTd.html(self.tooltip2.replace("$1", num + " x<br>" + self.trimZero(colorCode)));	
 						}
 					}
 				}
@@ -82,7 +82,7 @@ $(document).ready(function() {
 						$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 					}
 					else {
-						$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
+						$firstTd.html(self.tooltip2.replace("$1", num + " x<br>" + self.trimZero(colorCode)));	
 					}
 					break;
 				}
@@ -125,7 +125,7 @@ $(document).ready(function() {
 							$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 						}
 						else {
-							$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
+							$firstTd.html(self.tooltip2.replace("$1", num + " x<br>" + self.trimZero(colorCode)));	
 						}
 					}
 				}
@@ -136,7 +136,7 @@ $(document).ready(function() {
 						$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 					}
 					else {
-						$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
+						$firstTd.html(self.tooltip2.replace("$1", num + " x<br>" + self.trimZero(colorCode)));	
 					}
 					break;
 				}
