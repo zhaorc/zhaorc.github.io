@@ -68,10 +68,10 @@ $(document).ready(function() {
 						var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 						var partsBox = partsBoxMap[colorCode];
 						if(partsBox) {
-							$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+							$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 						}
 						else {
-							$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+							$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
 						}
 					}
 				}
@@ -79,10 +79,10 @@ $(document).ready(function() {
 					var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 					var partsBox = partsBoxMap[colorCode];
 					if(partsBox) {
-						$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+						$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 					}
 					else {
-						$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+						$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
 					}
 					break;
 				}
@@ -122,10 +122,10 @@ $(document).ready(function() {
 						var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 						var partsBox = partsBoxMap[colorCode];
 						if(partsBox) {
-							$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+							$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 						}
 						else {
-							$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+							$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
 						}
 					}
 				}
@@ -133,10 +133,10 @@ $(document).ready(function() {
 					var colorCode = colorName.replace("color_","").replace("block_","").replace("mark_","");
 					var partsBox = partsBoxMap[colorCode];
 					if(partsBox) {
-						$firstTd.html(self.tooltip1.replace("$1", num + " x " + colorCode).replace("$2", partsBox));	
+						$firstTd.html(self.tooltip1.replace("$1", num + " x " + self.trimZero(colorCode)).replace("$2", partsBox));	
 					}
 					else {
-						$firstTd.html(self.tooltip2.replace("$1", num + " x " + colorCode));	
+						$firstTd.html(self.tooltip2.replace("$1", num + " x " + self.trimZero(colorCode)));	
 					}
 					break;
 				}
@@ -177,6 +177,15 @@ $(document).ready(function() {
 			colorCodeTdList.eq(num).append(self.partsTooltip.replace("$1", partsBox||""));
 			colorCodeTdList.eq(num).addClass("parts_done");
 			parsNumTdList.eq(num).addClass("parts_done");
+		},
+		trimZero: function(colorCode) {
+			var idx = 0;
+			for(idx=0; idx<colorCode.length; idx++) {
+				if(colorCode.charAt(idx) != '0') {
+					break;
+				}
+			}
+			return colorCode.substring(idx);
 		}
 	}
 	App.bindEvents();
