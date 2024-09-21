@@ -142,13 +142,13 @@ table,tr,td {
 	border: 2px solid #ff0000;
 }
 .ui-tooltip .ui-tooltip-inner1 {
-	width: 80px;
+	width: 60px;
 	font-size: 18px;
 	display: block;
 	position: absolute;
 	padding: 0px 0px;
 	margin-top: -45px;
-	margin-left: 0px;
+	margin-left: -30px;
 	color: #fff;
 	text-align: left;
 	background-color: #000;
@@ -156,13 +156,13 @@ table,tr,td {
 	z-index: 1
 }
 .ui-tooltip-inner2 {
-	width: 80px;
+	width: 60px;
 	font-size: 18px;
 	display: block;
 	position: absolute;
 	padding: 0px 0px;
 	margin-top: -70px;
-	margin-left: 0px;
+	margin-left: -30px;
 	color: #fff;
 	text-align: left;
 	background-color: #000;
@@ -170,13 +170,13 @@ table,tr,td {
 	z-index: 1
 }
 .ui-tooltip-inner3 {
-	width: 40px;
+	width: 60px;
 	font-size: 18px;
 	display: block;
 	position: absolute;
 	padding: 3px 8px;
 	margin-top: -61px;
-	margin-left: 0px;
+	margin-left: -30px;
 	color: #fff;
 	text-align: left;
 	background-color: #000;
